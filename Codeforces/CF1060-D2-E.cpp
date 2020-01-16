@@ -59,34 +59,36 @@ void trace(const char* names, T&& arg1, Args&&... args){
 const char* comma = strchr(names + 1, ',');cout.write(names, comma-names)<<" : "<<arg1<<" | ";trace(comma+1,args...);}
 
 #define int ll
-const int out = 1e9;
-int qur(int x, int y) {
-    cout << "Q " << x << " " << y << endl;
-    fflush(stdout);
-    int ans;
-    cin >> ans;
-    return ans;
+
+const int N = 2e5 + 100;
+
+int n;
+vector<vector<int>> g(N);
+int tot_path;
+
+int sub[N];
+int cnt[2];
+void dfs(int v, int p, int par = 0) {
+    cnt[par]++;
+    sub[v] = 1;
+    for (auto u : g[v]) {
+        if (u != p) {
+            dfs(u, v, par ^ 1);
+            sub[v] += sub[u];
+        }
+    }
+    tot_path += (sub[v] * (n - sub[v]));
 }
 
-int32_t main(){ 
-    int test;
-    cin >> test;
-    while (test--) {
-        int a = qur(0, 0);
-        int b = out - qur(out, 0);
-        int x = (a + b) / 2;
-        int y = (a - x);
-        int xx = x;
-        int yy = y;
-        int c = qur(xx, 0);
-        int height = c;
-        int stx = a - height;
-        int endx = (b + height);
-        int d = qur(out, out);
-        int e = (2 * out) - d - endx;
-        cout << "A " << stx << " " << height << " " << endx << " " << e << endl;
-        fflush(stdout);
-        int temp;
-        cin >> temp;
+int32_t main(){ _
+    cin >> n;
+    for (int i = 0; i < n - 1; i++) {
+        int v, u;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
     }
+    dfs(1, 0);
+    int ans = (tot_path + (cnt[0] * cnt[1])) / 2;
+    cout << ans << endl;
 }
