@@ -133,6 +133,14 @@ int solve() {
         c[i] += x;
     }
     int ans = 0;
+
+    
+    /*
+
+    \sum_{l=1}^{n} \sum_{i=0}^{n-l-1}\{s_i * 10^{l-1} * \binom{n-l-1}{k-1} + 
+                                            s_i*10^{l-1}*\binom{n-l}{k} \}
+
+    */
     for (int l = 1; l <= n; l++) {
         int cs = c[n - l - 1];
         ans = add(ans, mul(power(10, l - 1), mul(C(n - l - 1, k - 1), cs)));
