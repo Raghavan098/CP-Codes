@@ -61,7 +61,7 @@ const char* comma = strchr(names + 1, ',');cout.write(names, comma-names)<<" : "
 #define int ll
 
 const int N = 3e5 + 100;
-// const int II = 40;
+const int II = 40;
 
 vector<vector<int>> ind(N);
 int n, arr[N], c;
