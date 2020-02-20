@@ -141,7 +141,7 @@ int get_left(int v, int tl, int tr, int val) {
     if (lazy[v] != 0) push(v);
     int mid = (tl + tr) / 2;
     int lc = 2 * v;
-    int rc = lc + 1;=
+    int rc = lc + 1;
     if (t[lc].fi <= val) {
         return get_left(lc, tl, mid, val);
     } else {
