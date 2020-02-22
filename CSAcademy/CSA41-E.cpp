@@ -164,7 +164,6 @@ int solve() {
         auto currr = query(1, 1, n, 1, x);
         int curr = currr.fi;
         if (curr == 0) break;
-
         int ansr, ansl;
         ansr = get_right(1, 1, n, curr);
         ansl = get_left(1, 1, n, curr);
