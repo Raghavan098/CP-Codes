@@ -135,12 +135,3 @@ int AkariDaisukiDiv1::countF(string Waai, string Akari, string Daisuki, string S
     }
     return ans % MOD;
 }
-
-
-int32_t main() {
-    string _a, _b, _c, _s, _f;
-    int kk;
-    cin >> _a >> _b >> _c >> _s >> _f >> kk;
-    AkariDaisukiDiv1 lool;
-    tr(lool.countF(_a, _b, _c, _s, _f, kk));
-}
