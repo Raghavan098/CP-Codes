@@ -227,11 +227,6 @@ int solve() {
             it = curr.end();
             it--;
         }
-        // tr(curr);
-        // for (int i = 1; i <= n; i++) {
-        //     cout << get(1, 1, n, i, i).mx << " ";
-        // }
-        // cout << endl;
     }
     return 0;
 }
