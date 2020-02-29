@@ -64,34 +64,9 @@ int rand(int l, int r)
 	return uid(rng);
 }
 
-
-// int Med3(int x, int y, int z) {
-//     cout << x << " " << y << " " << z << endl;
-//     int ans;
-//     cin >> ans;
-//     return ans;
-// }
-
 int Med3(int x, int y, int z);
 
-
-// int GetN() {
-//     cout << "enter n" << endl;
-//     int x;
-//     cin >> x;
-//     return x;
-// }
-
-// int GetN();
-
-// void Answer(int m) {
-//     cout << "got the ans " << m << endl;
-// }
-
-// void Answer(int m);
-
 int get(vector<int> L, vector<int> R, vector<int> M, int a, int b, int n) {
-    // tr(L, R, M, a, b);
     if ((int)L.size() == n/2) return a;
     if ((int)R.size() == n/2) return b;
     if ((int)R.size() > (int)L.size()) {
@@ -100,6 +75,7 @@ int get(vector<int> L, vector<int> R, vector<int> M, int a, int b, int n) {
     }
     vector<int> X, Y;
     if ((int)L.size() > n/2) {
+        
         int b2 = L[rand(0, (int)L.size() - 1)];
         for (int j = 0; j < (int)L.size(); j++) {
             int i = L[j];
@@ -164,10 +140,3 @@ int Median(int n) {
     }
     return get(L, R, M, a, b, n);
 }
-
-// int32_t main(){ 
-//     int t;
-//     // cin >> t;
-//     t = 1;
-//     while (t--) solve();
-// }

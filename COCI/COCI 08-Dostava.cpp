@@ -145,7 +145,7 @@ int solve() {
 
         ll temp = min(min(d1, d2), min(d3, d4));
         if (x == px) {
-            temp = min(temp, 0LL + get_cost(px, y, py) - cost[px][py]);
+            temp = min(temp, 0ll + get_cost(px, y, py) - cost[px][py]);
         }
         ans += temp;
         px = x, py = y;
