@@ -78,7 +78,6 @@ int solve() {
     cin >> s;
     int n = s.size();
     auto v = prefix_function(s);
-
     vector<int> cover(n);
     for (int i = 0; i < n; i++) {
         cover[i] = i;
@@ -96,7 +95,6 @@ int solve() {
             }
         }
     }
-
     cout << ans[n - 1] + 1 << endl;
     return 0;
 }
