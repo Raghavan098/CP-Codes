@@ -1,3 +1,21 @@
+
+// the hacker will get ceil(n/2) systems and the operator will get n/2 systems. both of these will 
+// form a contineous sequence in a circular way.
+
+// The one and only observation that is required in this problem is that if the hacker chooses 
+// a system to hack then the operator has complete control over the interval that he will get 
+// (ofcourse the interval should not contain the system choosen by the hacker). Once this observation
+// is made everything else is straight forward.
+
+// let's prove that the operator has complete control: 
+// assume that n is even (odd case is also same)
+// suppose hacker chooses some x system and the operator sees that he needs the interval that 
+// starts at distance d from x to the left. Now the operator will choose the system that is 
+// at distance 2 * d from x to the left. If the hacker now chooses the left of his interval then 
+// operator will choose right, and vice versa. 
+
+
+
 // g++ -std=c++14
 
 /*
