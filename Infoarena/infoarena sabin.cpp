@@ -1,5 +1,5 @@
 // g++ -std=c++14
-// https://cses.fi/107/list/
+
 /*
 
 Today might be the chance to grasp the chance to let your talent bloom.
@@ -25,7 +25,7 @@ using namespace std;
 #define mp(x,y) make_pair(x,y)
 #define MEMS(a,b) memset(a,b,sizeof(a))
 #define _ ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-#define __ freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define __ freopen("sabin.in","r",stdin);freopen("sabin.out","w",stdout);
 #define all(c) c.begin(),c.end()
 #define pii pair<int, int>
 #define tr(...) cout<<__FUNCTION__<<' '<<__LINE__<<" = ";trace(#__VA_ARGS__, __VA_ARGS__)
@@ -56,49 +56,64 @@ template<typename T, typename... Args>
 void trace(const char* names, T&& arg1, Args&&... args){
 const char* comma = strchr(names + 1, ',');cout.write(names, comma-names)<<" : "<<arg1<<" | ";trace(comma+1,args...);}
 
-#define int ll
 
-const int N = 1e5 + 100;
+int n, m, q, k, p;
+unordered_map<string, int> cnt;
+vector<string> marr;
 
-vector<int> arr;
-int n, m;
+int get_cnt(int len, vector<int> &a) {
+    if (len == 0) return n;
+    if (len == p + 1) return 0;
+    string temp = "";
+    for (int i = 1; i <= len; i++) {
+        for (int j = 0; j < k; j++) {
+            temp += marr[a[j]][i - 1];
+        }
+    }
+    // tr(temp, cnt[temp], len);
+    return cnt[temp];
+}
 
 int solve() {
-    cin >> m >> n;
+    cin >> n >> k >> m >> p >> q;
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        char c;
-        cin >> c;
-        arr.push_back(x);
+        vector<string> a;
+        for (int j = 0; j < k; j++) {
+            string temp;
+            cin >> temp;
+            a.push_back(temp);
+        }
+        string temp = "";
+        for (int len = 1; len <= p; len++) {
+            for (int j = 0; j < k; j++) {
+                temp += a[j][len - 1];
+            }
+            cnt[temp]++;
+        }
     }
-    if (n == 1) {
-        cout << 0.00 << endl;
-        return 0;
+    for (int i = 0; i < m; i++) {
+        string s;
+        cin >> s;
+        marr.push_back(s);
     }
-    sort(arr.begin(), arr.end());
 
-    vector<int> b;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) b.push_back(arr[i]);
-        else b.push_back(2 * m - arr[i]);
+    for (int i_ = 0; i_ < q; i_++) {
+        int len;
+        cin >> len;
+        vector<int> qs;
+        for (int i = 0; i < k; i++) {
+            int j; cin >> j;
+            qs.push_back(j - 1);
+        }
+        int a = get_cnt(len, qs);
+        int b = get_cnt(len + 1, qs);
+        cout << a - b << endl;
     }
-    sort(b.begin(), b.end());
-    vector<lld> target;
-    lld gap = (2.0 * m) / (1.0 * n);
-    lld curr = b[0];   
-    target.push_back(0.0);
-    for (int i = 1; i < n; i++) {
-        curr += gap;
-        target.push_back((lld)b[i] - curr);
-    }
-    sort(target.begin(), target.end());
-    lld ans = (target.back() - target[0]) / 2.0;
-    cout << fixed << setprecision(12) << ans << endl;
     return 0;
-}   
+}
 
 int32_t main(){ _
+__
     int t;
     // cin >> t;
     t = 1;
