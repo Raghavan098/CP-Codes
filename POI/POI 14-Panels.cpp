@@ -1,3 +1,14 @@
+/*
+
+    -> Lets say we fix a value x to be the answer. 
+    -> Our next step to check if this is valid is we will take the nearest multiple x less than or equal to b and d 
+    -> Let's find the condition for b same applies for d as well
+    -> lets say y * x is that nearest multiple. We know that y = floor(b/x)
+    -> we know that there are only sqrt(b) different values of y. So it means there are sqrt(b) different values for x as well
+    -> Now we just iterate through all the values of x and update our answer.
+
+*/
+
 // g++ -std=c++14
 
 /*
