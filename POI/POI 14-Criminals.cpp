@@ -1,3 +1,10 @@
+/*
+    The main idea is to maintain several pointers and for each position check if it's possible to make this as the meeting point.
+    so for a position to be a meeting point the whole x array shuld be there on the left and 
+    the whole y array should be there on the right. And also there should be one common color before and after that.
+    maintain all the required information, and update the answer.
+*/
+
 // g++ -std=c++14
 
 /*
@@ -86,8 +93,6 @@ int ansleft[N], ansright[N];
 int mxright[N];
 
 int solve() {
-    // MEMS(leftbefore, -1);
-    // MEMS(rightnxt, -1);
     cin >> n >> k;
     for (int i = 1; i <= n; i++) {
         cin >> arr[i];
@@ -142,16 +147,6 @@ int solve() {
         }
         ind[arr[i]].push_back(i);
     }
-
-    // for (int i = 1; i <= n; i++) {
-    //     cout << ansleft[i] << " ";
-    // }
-    // cout << endl;
-    
-    // for (int i = 1; i <= n; i++) {
-    //     cout << ansright[i] << " ";
-    // }
-    // cout << endl;
     int mx = -1;
     vector<int> ans;
     for (int i = 1; i <= n; i++) {
