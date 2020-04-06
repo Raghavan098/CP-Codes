@@ -1,3 +1,11 @@
+/*
+    Our dp states dp[i][j][k] = number of permutations of length i starting with j and k denoting the direction.
+    the dp transistion can be found here https://github.com/mostafa-saad/MyCompetitiveProgramming/tree/master/Olympiad/CEOI/official/2002
+    the main idea here is to understand the bijection in the counting. the editorial explains well.
+
+    now build the answer from the start which is pretty straight forward.
+*/
+
 // g++ -std=c++14
 
 /*
@@ -78,8 +86,6 @@ int solve() {
             } else {
                 if (dir == 1 && ans.back() < j) continue;
                 if (dir == 0 && ans.back() > j) continue;
-                // int temp = f(n - i, curr_val[j], dir);
-                // tr("herhe", curr_val[j], curr, temp, dir);
                 if ((f(n - i, curr_val[j], dir) + curr) >= c) {
                     done = 1;
                     no = j;
@@ -87,7 +93,6 @@ int solve() {
                     curr += f(n - i, curr_val[j], dir);
                 }
             }
-            // tr(done);
             if (done == 1) {
                 visited[no] = 1;
                 ans.push_back(no);
