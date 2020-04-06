@@ -1,3 +1,10 @@
+/*
+    let dp[i] be the answer for mask i, now if only 1 element is there in the mask then the number of nodes that is needed will be exatly the lenght of the string
+    if more than one word is there we have to divide them into two subsets and calculate the answer for them seperately and add them
+    also subtract the common things from all the words
+     now we have to take the subset that gives the minimum cost. iterate through all the submaks and get the answer
+     therefore the overall complexity becomes O(n*2^n + 3^n) ~= O(3^n)
+*/
 // g++ -std=c++14
 
 /*
