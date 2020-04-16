@@ -1,6 +1,7 @@
 /*
 
     * There has to be n^2 number of quries.
+    * Proof of this is very simple if you can get the answer in less number of queries it means that we can encode a matrix in less than n^2 cells. which is not possible.
     * Now for every query find the largest subrectange that this cell contains and then find the prefix sum for this cell.
     
 */
