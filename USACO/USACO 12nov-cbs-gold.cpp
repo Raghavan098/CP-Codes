@@ -1,3 +1,14 @@
+/*
+
+    for each index j we will calculate the answer. 
+    suppose the cumulative sums at j are (c1, c2.. ck) for k strings.
+    it is easy to see that number of good substrings that start at j are number of (c1, c2.. ck) after j
+    there is just one more condition left to check. That is no where in between the subarray sum should go negative.
+    so for each of the string we'll see the nearest position where the subarray sum will go negative
+    then we'll just count the number (c1, c2, ... ck) in before that nearest position
+
+*/
+
 // g++ -std=c++14
 
 /*
