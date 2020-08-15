@@ -1,3 +1,12 @@
+/*
+    -> clearly a segment tree question 
+    -> no need to write a query function because we only need the total sum
+    -> turn on and off a range is required.
+    -> when the number of turn off's to a given range is overall 0 then we can count the sum.
+    -> change the update function that accomodates all these.
+    -> no need to write lazy propagation because we are not using the query function so no need to propagate anything below.
+*/
+
 #include<bits/stdc++.h>
 
 typedef long long ll;
