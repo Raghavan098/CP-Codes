@@ -1,3 +1,9 @@
+/*
+    given a interval write down a formula of the probability. Now add one more element and write the probability again.
+    get the condition for which the probability will increase.
+    we can see that we can solve this problem using two pointers.
+*/
+
 #include<bits/stdc++.h>
 
 typedef long long ll;
